@@ -1,0 +1,11 @@
+Description: wrong interpreter path
+ Purpose: Fix wrong path of perl interpreter
+Author: Philipp Benner <philipp@debian.org>
+--- a/src/alien/oxygen/src/mcxdeblast
++++ b/src/alien/oxygen/src/mcxdeblast
+@@ -1,4 +1,4 @@
+-#!/usr/local/bin/perl -w
++#!/usr/bin/perl -w
+ 
+ use Getopt::Long;
+ 

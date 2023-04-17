@@ -1,0 +1,39 @@
+Author: Philipp Benner
+Last-Update: 2013-01-27 15:17:54 +0000
+Description: remove spaces in the program name (which is not allowed in manuals)
+
+--- a/src/impala/matrix.c
++++ b/src/impala/matrix.c
+@@ -1855,18 +1855,18 @@
+ mclv* mclgUnionv
+ (  mclx* mx
+ ,  const mclv* coldom
+-,  const mclv* restrict
++,  const mclv* restrict_var
+ ,  mcxenum scratch_STATUS
+ ,  mclv* dst
+ )
+-   {  return mclgUnionv2(mx, coldom, restrict, scratch_STATUS, dst, mx->dom_rows)
++   {  return mclgUnionv2(mx, coldom, restrict_var, scratch_STATUS, dst, mx->dom_rows)
+ ;  }
+ 
+ 
+ mclv* mclgUnionv2
+ (  const mclx* mx
+ ,  const mclv* coldom
+-,  const mclv* restrict
++,  const mclv* restrict_var
+ ,  mcxenum scratch_STATUS
+ ,  mclv* dst
+ ,  mclv* scratch
+@@ -1911,8 +1911,8 @@
+                )
+                continue               /* SNH if coldom is subset of mx->dom_cols */
+             ;  if
+-               (  restrict
+-               && 0 > (o_restrict = mclvGetIvpOffset(restrict, idx, o_restrict))
++               (  restrict_var
++               && 0 > (o_restrict = mclvGetIvpOffset(restrict_var, idx, o_restrict))
+                )
+                continue               /* not found in restriction domain */
+ 
