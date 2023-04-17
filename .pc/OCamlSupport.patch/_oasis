@@ -1,0 +1,18 @@
+OASISFormat:     0.3
+Name:            mcl
+Version:         22-282
+Synopsis:        Graph clustering by flow simulation
+Authors:         Stijn van Dongen
+License:         GPL-3.0
+Plugins:         META (0.3)
+PreConfCommand:  ./configure CFLAGS="-fPIC -std=c89" LDFLAGS=-fPIC --enable-blast
+PreBuildCommand: make
+PreCleanCommand: make clean
+
+Library mcl
+  Path: caml
+  BuildTools: ocamlbuild
+  CSources: caml_mcl.c
+  CCOpt: -fPIC -std=c99
+  Modules: Mcl
+  XMETAExtraLines: directory = "^"
