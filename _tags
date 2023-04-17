@@ -1,0 +1,22 @@
+true: precious
+# OASIS_START
+# DO NOT EDIT (digest: 4d297b719a7ccba6ad451dedb35219c4)
+# Ignore VCS directories, you can use the same kind of rule outside
+# OASIS_START/STOP if you want to exclude directories that contains
+# useless stuff for the build process
+<**/.svn>: -traverse
+<**/.svn>: not_hygienic
+".bzr": -traverse
+".bzr": not_hygienic
+".hg": -traverse
+".hg": not_hygienic
+".git": -traverse
+".git": not_hygienic
+"_darcs": -traverse
+"_darcs": not_hygienic
+# Library mcl
+"caml/mcl.cmxs": use_mcl
+<caml/*.ml{,i}>: oasis_library_mcl_ccopt
+"caml/caml_mcl.c": oasis_library_mcl_ccopt
+<caml/mcl.{cma,cmxa}>: use_libmcl_stubs
+# OASIS_STOP
