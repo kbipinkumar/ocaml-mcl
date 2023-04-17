@@ -6638,7 +6638,7 @@ let setup_t =
           alpha_features = [];
           beta_features = [];
           name = "mcl";
-          version = "12-068~oasis4";
+          version = "22-282";
           license =
             OASISLicense.DEP5License
               (OASISLicense.DEP5Unit
